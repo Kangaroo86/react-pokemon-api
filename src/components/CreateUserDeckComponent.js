@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Row, Input } from 'react-materialize';
 
-// TODO WIP
-
 const pokemon = [
   {
     id: 1,
@@ -20,6 +18,18 @@ const pokemon = [
   {
     id: 10,
     name: 'Caterpie'
+  },
+  {
+    id: 150,
+    name: 'Mewtwo'
+  },
+  {
+    id: 151,
+    name: 'Mew'
+  },
+  {
+    id: 25,
+    name: 'Pikachu'
   }
 ];
 
@@ -43,7 +53,6 @@ export default class CreateUserDeckComponent extends Component {
     );
     this.setState(currentState => {
       return {
-        //selectedPokemon: [...currentState.selectedPokemon, character]
         selectedPokemon: [
           ...currentState.selectedPokemon,
           this.state.selectedPokemon.id !== character.id ? character : false
@@ -139,20 +148,3 @@ export default class CreateUserDeckComponent extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     createDeck: state.createDeck
-//   };
-// };
-//
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     createDeck: (deckName, pokemonIds) =>
-//       dispatch(createUserDeckProcess(deckName, pokemonIds)) // TODO change getUserDecksProcess
-//   };
-// };
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(
-//   CreateUserDeckComponent
-// );

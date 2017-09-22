@@ -1,6 +1,5 @@
 import { compose, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
-
 import CreateUserDeckComponent from '../../components/CreateUserDeckComponent';
 import createUserDeckProcess from '../thunks/createUserDeckProcess';
 

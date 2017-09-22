@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import pic01 from '../../src/pic01.jpg';
-import pic02 from '../../src/pic02.jpg';
-import samplepict from '../../src/samplepict.jpg';
+// import pic01 from '../../src/pic01.jpg';
+// import pic02 from '../../src/pic02.jpg';
+// import samplepict from '../../src/samplepict.jpg';
 //import deck_image from '../deck_image.png';
 //import deck_image from '../samplepict.jpg';
 
@@ -15,12 +15,16 @@ export default class CreateBattlePageComponent extends Component {
     };
   }
 
-  _getPokemon = (event, props) => {
+  _getPokemonStatus = (event, props) => {
     event.preventDefault();
-    //console.log('battlePage props---', this.props);
-    //console.log('imag result', this.props.pokemonObj.sprites.front_default);
-    //this.props.getPokemon();
-    //this.setState({ link: this.props.pokemonObj.sprites.front_default });
+    console.log('this.props: ', this.props);
+    console.log('this.props.userDecks: ', this.props.userDecks);
+
+    let image = this.props.userDecks.map(result => {
+      console.log('result', result);
+      return result.fields.cards[0].sprites.front_default;
+    });
+    this.setState({ link: image });
   };
 
   render() {
@@ -34,6 +38,8 @@ export default class CreateBattlePageComponent extends Component {
               <span className="card-title">Card Title</span>
             </div>
             <div className="card-content">
+              <img src={this.state.link} alt={1} />
+
               <td>HP</td>
               <td>10</td>
               <td>MP</td>
@@ -41,7 +47,7 @@ export default class CreateBattlePageComponent extends Component {
             </div>
             <div className="card-action">
               <button
-                onClick={this._getPokemon}
+                onClick={this._getPokemonStatus}
                 className="waves-effect waves-light btn">
                 ATTACK
               </button>

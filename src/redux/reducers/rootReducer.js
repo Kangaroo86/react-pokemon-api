@@ -8,7 +8,7 @@ export default function rootReducer(
 ) {
   switch (action.type) {
     case 'GET_POKEMON':
-      //console.log('rootReducer: GET_POKEMON with action ', action);
+      console.log('rootReducer: GET_POKEMON with action ', action);
       return { ...currentState, getPokemonObj: action.getPokemonObj };
 
     case 'FETCHED_USER_DECKS':
@@ -17,18 +17,15 @@ export default function rootReducer(
 
     case 'CREATED_USER_DECK':
       console.log('rootReducer: CREATED_USER_DECK with action ', action);
-      return {
-        ...currentState,
-        createDeck: [...currentState.createDeck, action.createDeck]
-      };
+      let newUserDecks = [...currentState.userDecks, action.createDeck];
+      return { ...currentState, userDecks: newUserDecks };
 
-    //TODO WIP
     case 'DELETE_USER_DECK':
       console.log('rootReducer: DELETE_USER_DECK with action ', action);
-      return {
-        ...currentState,
-        createDeck: [...currentState.createDeck, action.createDeck]
-      };
+      newUserDecks = currentState.userDecks.filter(userDeck => {
+        return userDeck.id !== action.id;
+      });
+      return { ...currentState, userDecks: newUserDecks };
 
     default:
       console.log('rootReducer: default with action ', action);

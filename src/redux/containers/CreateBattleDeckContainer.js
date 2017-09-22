@@ -1,18 +1,20 @@
 import { compose, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 
+import getUserDecksProcess from '../thunks/getUserDecksProcess';
 import CreateBattlePageComponent from '../../components/CreateBattlePageComponent';
 import getPokemonProcess from '../thunks/getPokemonProcess';
 
 function mapStateToProps(state, ownProps) {
   return {
-    //pokemonObj: state.pokemonObj
+    userDecks: state.userDecks,
+    getPokemonObj: state.getPokemonObj
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    //fetch_pokemon_webApi: () => dispatch(getPokemonProcess())
+    fetch_user_decks: () => dispatch(getUserDecksProcess())
   };
 }
 
@@ -21,7 +23,7 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 //you only user dismount when you want an api continous to send data
 const onDidMount = lifecycle({
   componentDidMount() {
-    //this.props.fetch_pokemon_webApi();
+    this.props.fetch_user_decks();
   }
 });
 
