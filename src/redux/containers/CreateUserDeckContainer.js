@@ -10,7 +10,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     createDeck: (deckName, pokemonIds) =>
-      dispatch(createUserDeckProcess(deckName, pokemonIds)) // TODO change getUserDecksProcess
+      dispatch(createUserDeckProcess(deckName, pokemonIds))
   };
 }
 

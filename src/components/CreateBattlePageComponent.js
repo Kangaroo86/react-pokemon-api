@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-// import pic01 from '../../src/pic01.jpg';
-// import pic02 from '../../src/pic02.jpg';
-// import samplepict from '../../src/samplepict.jpg';
-//import deck_image from '../deck_image.png';
-//import deck_image from '../samplepict.jpg';
 
 export default class CreateBattlePageComponent extends Component {
   constructor(props) {

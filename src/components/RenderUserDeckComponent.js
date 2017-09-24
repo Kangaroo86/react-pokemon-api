@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function RenderUserDeck({ userDeck, onDelete }) {
-  function handleClick() {
+export default function RenderUserDeck({ userDeck, onDelete, onUpdate }) {
+  function handle_onDelete() {
     onDelete(userDeck.id);
   }
+
+  function handle_onUpdate() {
+    //console.log('pokemon id', userDeck.fields.cards[0].id);
+    onUpdate(userDeck.fields.id, userDeck.fields.name, userDeck.fields.cards);
+  }
+
   return (
     <div className="card" key={userDeck.id}>
       <div className="card-image waves-effect waves-block waves-light" />
@@ -29,10 +35,14 @@ export default function RenderUserDeck({ userDeck, onDelete }) {
             <button className="waves-effect waves-light btn">BATTLE</button>
           </Link>
           <Link to="/decks/new">
-            <button className="waves-effect waves-light btn">EDIT</button>
+            <button
+              onClick={handle_onUpdate}
+              className="waves-effect waves-light btn">
+              EDIT
+            </button>
           </Link>
           <button
-            onClick={handleClick}
+            onClick={handle_onDelete}
             className="waves-effect waves-light btn">
             DELETE
           </button>

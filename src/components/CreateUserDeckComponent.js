@@ -16,10 +16,6 @@ const pokemon = [
     name: 'Squirtle'
   },
   {
-    id: 10,
-    name: 'Caterpie'
-  },
-  {
     id: 150,
     name: 'Mewtwo'
   },
@@ -30,6 +26,34 @@ const pokemon = [
   {
     id: 25,
     name: 'Pikachu'
+  },
+  {
+    id: 38,
+    name: 'Ninetails'
+  },
+  {
+    id: 144,
+    name: 'Articuno'
+  },
+  {
+    id: 145,
+    name: 'Zapdo'
+  },
+  {
+    id: 146,
+    name: 'Moltres'
+  },
+  {
+    id: 243,
+    name: 'Raikou'
+  },
+  {
+    id: 244,
+    name: '	Entei'
+  },
+  {
+    id: 245,
+    name: 'Suicune'
   }
 ];
 
